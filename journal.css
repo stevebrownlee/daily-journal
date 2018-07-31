@@ -1,0 +1,9 @@
+.journalForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.fieldset {
+    display: flex;
+    flex-direction: column;
+}

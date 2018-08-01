@@ -1,12 +1,3 @@
-const journalEntries = [
-    {
-        concept: "Array methods",
-        date: "07/24/2018",
-        entry: "We learned about array methods, but only forEach made sense",
-        mood: "Ok"
-    }
-]
-
 /*
     Purpose: To create, and return, a string template that
     represents a single journal entry object as HTML
@@ -44,4 +35,10 @@ const renderJournalEntries = (entries) => {
     }
 }
 
-renderJournalEntries(journalEntries)
+/*
+    Fetch the journal entries
+*/
+fetch("http://localhost:3000/entries")
+    .then(response => response.json())
+    .then(renderJournalEntries)
+

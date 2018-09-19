@@ -1,10 +1,18 @@
 {
-    "entries": [
-        {
-            "concept": "Array methods",
-            "date": "07/24/2018",
-            "entry": "We learned about array methods, but only forEach made sense",
-            "mood": "Ok"
-        }
-    ]
+  "entries": [
+    {
+      "id": 1,
+      "concept": "Array methods",
+      "date": "07/24/2018",
+      "entry": "We learned about array methods, but only forEach made sense",
+      "mood": "Ok"
+    },
+    {
+      "date": "2018-09-18",
+      "concept": "API, fetch",
+      "entry": "We learned how to use the JavaScript fetch command to POST information to our API",
+      "mood": "happy",
+      "id": 2
+    }
+  ]
 }

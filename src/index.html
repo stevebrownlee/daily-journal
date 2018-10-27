@@ -32,12 +32,25 @@
     </form>
     <button id="journalSaveButton">Record Journal Entry</button>
 
+    <hr/>
+
+    <fieldset>
+        <legend>Filter Journal Entries by Mood</legend>
+        <input type="radio" name="moodFilter" id="moodFilter--sad" value="sad">
+        <label for="moodFilter--sad">Sad</label>
+        <input type="radio" name="moodFilter" id="moodFilter--happy" value="happy">
+        <label for="moodFilter--happy">Happy</label>
+        <input type="radio" name="moodFilter" id="moodFilter--ok" value="ok">
+        <label for="moodFilter--ok">Ok</label>
+    </fieldset>
+
     <article class="entryLog">
 
     </article>
 
 
     <script src="scripts/entryComponent.js"></script>
+    <script src="scripts/filterEntries.js"></script>
     <script src="scripts/entriesDOM.js"></script>
     <script src="scripts/data.js"></script>
     <script src="scripts/journal.js"></script>

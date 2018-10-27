@@ -5,7 +5,7 @@
       "concept": "Array methods",
       "date": "07/24/2018",
       "entry": "We learned about array methods, but only forEach made sense",
-      "mood": "Ok"
+      "mood": "ok"
     },
     {
       "date": "2018-09-18",
@@ -13,6 +13,20 @@
       "entry": "We learned how to use the JavaScript fetch command to POST information to our API",
       "mood": "happy",
       "id": 2
+    },
+    {
+      "date": "2018-10-26",
+      "concept": "Web API",
+      "entry": "Cohort 27 started on Web API sprint today",
+      "mood": "happy",
+      "id": 3
+    },
+    {
+      "date": "2018-10-29",
+      "concept": "ASP.NET Web App",
+      "entry": "We learned how to customize Razor templates with static JS and CSS",
+      "mood": "sad",
+      "id": 4
     }
   ]
 }

@@ -18,3 +18,5 @@ const DataManager = Object.create(null, {
         }
     }
 })
+
+module.exports = DataManager

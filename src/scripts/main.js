@@ -1,5 +1,9 @@
-import DataManager from "./data"
+import DataManager from "./data/dataManager"
+import EntrySave from "./journal/save"
+import EntryDOM from "./journal/renderEntries"
+import EntryFilter from "./journal/filter"
 
-DataManager.getJournalEntries().then(entries => {
-    console.log(entries)
-})
+EntrySave.init()
+EntryFilter.init()
+
+DataManager.getJournalEntries().then(EntryDOM.render)

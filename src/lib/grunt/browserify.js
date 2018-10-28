@@ -1,7 +1,20 @@
 module.exports = {
     options: {
         transform: [
-            ['babelify', {presets: ["@babel/preset-env"]}]
+            [
+                'babelify',
+                {
+                    "presets": [
+                        [
+                            "@babel/preset-env", {
+                                "targets": {
+                                    "node": "current"
+                                }
+                            }
+                        ]
+                    ]
+                }
+            ]
         ],
         browserifyOptions: {
             debug: true

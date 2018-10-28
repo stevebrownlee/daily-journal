@@ -1,4 +1,5 @@
 node_modules
+public/dailyjournal.js
 bower_components
 __pycache__
 *.pyc

@@ -7,3 +7,17 @@
     display: flex;
     flex-direction: column;
 }
+
+.filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.filter__section {
+    flex-basis: 45%;
+}
+
+.filter__searchTerm {
+    width: 97%
+}

@@ -27,6 +27,13 @@
       "entry": "We learned how to customize Razor templates with static JS and CSS",
       "mood": "sad",
       "id": 4
+    },
+    {
+      "date": "2019-01-11",
+      "concept": "JavaScript Objects",
+      "entry": "We learned how to construct an object and access keys using dot notation and square bracket notation",
+      "mood": "happy",
+      "id": 5
     }
   ]
 }

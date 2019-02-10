@@ -1,19 +1,22 @@
-export default Object.create(null, {
-    makeHTMLComponent: {
-        value: journalEntry => {
+const EntryFactory = Object.create(null, {
+    createEntryCard: {
+        value: ({concept, entry, date}) => {
             return `
             <article class="journalEntry">
                 <header>
-                    <h2>${journalEntry.concept}</h2>
+                    <h2>${concept}</h2>
                 </header>
                 <section>
-                    ${journalEntry.entry}
+                    ${entry}
                 </section>
                 <footer>
-                    <time>${journalEntry.date}</time>
+                    <time>${date}</time>
                 </footer>
             </article>
             `
         }
     }
 })
+
+
+export default EntryFactory

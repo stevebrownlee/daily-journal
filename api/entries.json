@@ -27,6 +27,48 @@
       "entry": "We learned how to customize Razor templates with static JS and CSS",
       "mood": "sad",
       "id": 4
+    },
+    {
+      "date": "2019-02-28",
+      "concept": "Browserify",
+      "entry": "Walked through the basics of modularization with Browserify",
+      "mood": "happy",
+      "id": 5
+    },
+    {
+      "date": "2019-02-22",
+      "concept": "pop",
+      "entry": "po",
+      "mood": "sad",
+      "id": 6
+    },
+    {
+      "date": "2019-02-14",
+      "concept": "pop",
+      "entry": "pop",
+      "mood": "sad",
+      "id": 7
+    },
+    {
+      "date": "2019-02-14",
+      "concept": "lklk",
+      "entry": "poplklklk",
+      "mood": "happy",
+      "id": 8
+    },
+    {
+      "date": "2019-02-28",
+      "concept": "njnkjnknjkn",
+      "entry": "nknknkjnjkn",
+      "mood": "sad",
+      "id": 9
+    },
+    {
+      "date": "2019-02-28",
+      "concept": "nbnbnbnb",
+      "entry": "bnbnbnbnbnbnbnbbnb b nb nb nbnbnbn bnb bnbnbnbn bnb nbnn b n",
+      "mood": "sad",
+      "id": 10
     }
   ]
 }

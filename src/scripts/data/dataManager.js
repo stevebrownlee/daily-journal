@@ -14,7 +14,7 @@ const DataManager = Object.create(null, {
                 },
                 body: JSON.stringify(entry)
             });
-            return response.json();
+            return response.json()
         }
     }
 })

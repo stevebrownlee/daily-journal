@@ -6,9 +6,14 @@ This repo has several tagged releases that any instructor can use as a boilerpla
 
 It is built elaborately so as to be something that students can continue to apply new concepts to without the need for any major refactoring. It ends after the Nutshell group project is completed, and before their React education begins. If it continued to React, then it would be a complete rewrite from the ground up, which is not necessary.
 
-## Browserify Setup
+## Browserify Version
 
-If you switch to the `browserify` branch, make sure you go to the `src/lib` directory and `npm install` to get all of the required packages. Once that's complete, run `grunt` to start it all up again.
+1. Switch to `dockerized` branch
+1. Make sure Docker is running on your machine
+1. In the root directory run `./build.sh`
+1. Once that is complete, run `./run.sh`
+
+That will fire up
 
 ## Prerequisites
 

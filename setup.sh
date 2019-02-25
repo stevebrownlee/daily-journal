@@ -1,4 +1,13 @@
-# docker exec -it daily_journal -w /code/src/lib sh -c "npm install"
+#!/bin/bash
 
-# docker run -it --rm -v "$(pwd)":/app -w /app/src/lib daily_journal sh -c 'npm i -g grunt-cli http-server json-server && npm install'
-docker run -it daily_journal sh -c 'npm i -g grunt-cli http-server json-server && npm install'
+docker build -t daily_journal .
+
+docker run -it \
+    -v "$(pwd)":/app \
+    --rm \
+    -p 8080:8080 \
+    -p 8088:8088 \
+    -w /app/src/lib \
+    daily_journal \
+    npm install --loglevel=error
+

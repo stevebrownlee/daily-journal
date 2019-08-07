@@ -6,4 +6,4 @@ import EntryFilter from "./journal/filter"
 EntrySave.init()
 EntryFilter.init()
 
-DataManager.getJournalEntries().then(EntryDOM.render)
+DataManager.getJournalEntries().then(EntryDOM.renderAll)

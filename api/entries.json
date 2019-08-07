@@ -27,6 +27,13 @@
       "entry": "We learned how to customize Razor templates with static JS and CSS",
       "mood": "sad",
       "id": 4
+    },
+    {
+      "date": "2019-02-28",
+      "concept": "Browserify",
+      "entry": "Walked through the basics of modularization with Browserify",
+      "mood": "happy",
+      "id": 5
     }
   ]
 }

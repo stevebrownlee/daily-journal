@@ -1,4 +1,5 @@
 import DataManager from "../data/dataManager"
+import RenderManager from "./renderEntries"
 
 export default Object.create(null, {
     init: {
@@ -10,10 +11,8 @@ export default Object.create(null, {
                 const mood = document.querySelector("#mood").value
 
                 DataManager.saveJournalEntry({ date, concept, entry, mood })
-                    .then(() => {
-                        allEntries.push({ date, concept, entry, mood })
-                        renderJournalEntries(allEntries)
-                    })
+                    .then(DataManager.getJournalEntries)
+                    .then(RenderManager.render)
             })
         }
     }

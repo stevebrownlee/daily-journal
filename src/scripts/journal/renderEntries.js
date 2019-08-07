@@ -1,10 +1,10 @@
 import Factory from "../journal/entryFactory"
 
+const entriesContainer = document.querySelector(".entryLog")
+
 export default Object.create(null, {
     render: {
         value: entries => {
-            const entriesContainer = document.querySelector(".entryLog")
-
             entriesContainer.textContent = ""
 
             for (const entry of entries) {

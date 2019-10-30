@@ -8,7 +8,7 @@ export default Object.create(null, {
                 node.addEventListener("click", event =>
                     DataManager.getJournalEntries()
                         .then(entries => entries.filter(entry => entry.mood === event.target.value))
-                        .then(EntryDOM.render)
+                        .then(EntryDOM.renderAll)
                 )
             )
         }

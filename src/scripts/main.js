@@ -1,9 +1,12 @@
-import DataManager from "./data/dataManager"
+import { getJournalEntries } from "./data/dataManager"
 import EntrySave from "./journal/save"
-import EntryDOM from "./journal/renderEntries"
 import EntryFilter from "./journal/filter"
+import { renderAllEntries } from "./journal/renderEntries"
+import { getAllEditButtons } from "./journal/eventManager"
 
 EntrySave.init()
 EntryFilter.init()
 
-DataManager.getJournalEntries().then(EntryDOM.renderAll)
+getJournalEntries()
+    .then(renderAllEntries)
+    .then(getAllEditButtons)

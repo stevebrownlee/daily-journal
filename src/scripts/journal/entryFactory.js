@@ -1,6 +1,6 @@
 const EntryFactory = Object.create(null, {
     createEntryCard: {
-        value: ({concept, entry, date}) => {
+        value: ({id, concept, entry, date}) => {
             return `
             <article class="journalEntry">
                 <header>
@@ -12,6 +12,8 @@ const EntryFactory = Object.create(null, {
                 <footer>
                     <time>${date}</time>
                 </footer>
+
+                <button class="button--edit" id="editButton--${id}">Edit</button>
             </article>
             `
         }

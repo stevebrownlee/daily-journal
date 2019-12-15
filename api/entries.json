@@ -1,17 +1,11 @@
 {
   "entries": [
     {
-      "id": 1,
-      "date": "2018-07-24",
-      "concept": "Jisie come back",
-      "mood": "happy"
-    },
-    {
+      "id": 2,
       "date": "2018-09-18",
+      "entry": "We learned how to use the JavaScript fetch command to POST information to our json-based API. Incredible!",
       "concept": "API, fetch",
-      "entry": "We learned how to use the JavaScript fetch command to POST information to our API",
-      "mood": "happy",
-      "id": 2
+      "mood": "happy"
     },
     {
       "date": "2018-10-26",
@@ -33,6 +27,27 @@
       "entry": "Walked through the basics of modularization with Browserify",
       "mood": "happy",
       "id": 5
+    },
+    {
+      "date": "2018-09-18",
+      "concept": "API, fetch",
+      "entry": "We learned how to use the JavaScript fetch command to POST information to our json-based API",
+      "mood": "happy",
+      "id": 6
+    },
+    {
+      "date": "2018-09-18",
+      "concept": "API, fetch",
+      "entry": "We learned how to use the JavaScript fetch command to POST information to our json-based API",
+      "mood": "happy",
+      "id": 7
+    },
+    {
+      "date": "2018-09-18",
+      "concept": "API, fetch",
+      "entry": "We learned how to use the JavaScript fetch command to POST information to our json-based API",
+      "mood": "happy",
+      "id": 8
     }
   ]
 }

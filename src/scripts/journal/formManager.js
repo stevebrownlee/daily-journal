@@ -1,6 +1,7 @@
-export const createEntryForm = (mode) => {
-    let formHTML = `
+export const renderEntryForm = () => {
+    document.querySelector(".container").innerHTML = `
         <form class="journalForm">
+            <input type="hidden" name="entryId" id="entryId">
             <fieldset class="fieldset">
                 <label for="journalDate">Date of entry</label>
                 <input type="date" name="journalDate" id="journalDate">
@@ -11,7 +12,7 @@ export const createEntryForm = (mode) => {
             </fieldset>
             <fieldset class="fieldset">
                 <label for="journalEntry">Journal Entry</label>
-                <textarea type="date" name="journalEntry" id="journalEntry"></textarea>
+                <textarea cols="80" rows="10" type="date" name="journalEntry" id="journalEntry"></textarea>
             </fieldset>
             <fieldset class="fieldset">
                 <label for="journalDate">Mood for the day</label>
@@ -23,10 +24,4 @@ export const createEntryForm = (mode) => {
             </fieldset>
         </form>
     `
-
-    if (mode === "edit") {
-        formHTML += "<button id=\"pleaseUpdateForMe\">Update</button>"
-    }
-
-    return formHTML
 }

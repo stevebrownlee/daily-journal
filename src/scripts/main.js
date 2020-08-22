@@ -1,3 +1,5 @@
 import { DailyJournal } from "./DailyJournal.js";
 
-DailyJournal()
+const contentTarget = document.querySelector(".container")
+
+contentTarget.innerHTML = DailyJournal()

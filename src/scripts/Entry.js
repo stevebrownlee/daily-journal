@@ -18,6 +18,7 @@ export const Entry = (journalEntry) => {
             </header>
             <section>
                 ${journalEntry.entry}
+                <div>I felt ${ journalEntry.mood } about it</div>
             </section>
             <date>
                 <time>${journalEntry.date}</time>

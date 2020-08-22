@@ -16,6 +16,11 @@ export const getJournalEntries = () => {
         .then(dispatchStateChangeEvent)
 }
 
+export const searchEntries = (term) => {
+    return fetch(`http://localhost:8088/entries?q=${term}`)
+        .then(response => response.json())
+}
+
 export const saveJournalEntry = (entry) => {
     return fetch("http://localhost:8088/entries", {
         method: "POST",

@@ -1,27 +1,5 @@
 const eventHub = document.querySelector(".container")
 
-eventHub.addEventListener("click", e => {
-    if (e.target.id === "clearMood") {
-        eventHub.dispatchEvent(new CustomEvent("moodCleared"))
-
-        document.querySelector("#moodFilter--sad").checked = false
-        document.querySelector("#moodFilter--happy").checked = false
-        document.querySelector("#moodFilter--ok").checked = false
-    }
-})
-
-eventHub.addEventListener("change", e => {
-    if (e.target.name === "moodFilter") {
-        const mood = new CustomEvent("moodSelected", {
-            detail: {
-                mood: e.target.value
-            }
-        })
-
-        eventHub.dispatchEvent(mood)
-    }
-})
-
 export const EntryFilters = () => {
     return `
         <article class="filter">
@@ -41,9 +19,44 @@ export const EntryFilters = () => {
             <section class="filter__section filter__section--search">
                 <fieldset>
                     <legend>Search journal entries</legend>
-                    <input class="filter__searchTerm" placeholder="Enter search term" type="text" name="" id="">
+                    <input id="filter__searchTerm" placeholder="Enter search term" type="text">
                 </fieldset>
             </section>
         </article>
     `
 }
+
+eventHub.addEventListener("click", e => {
+    if (e.target.id === "clearMood") {
+        eventHub.dispatchEvent(new CustomEvent("moodCleared"))
+
+        document.querySelector("#moodFilter--sad").checked = false
+        document.querySelector("#moodFilter--happy").checked = false
+        document.querySelector("#moodFilter--ok").checked = false
+    }
+})
+
+eventHub.addEventListener("keyup", e => {
+    if (e.target.id === "filter__searchTerm") {
+        const search = new CustomEvent("searchTermChanged", {
+            detail: {
+                term: e.target.value
+            }
+        })
+
+        eventHub.dispatchEvent(search)
+    }
+})
+
+eventHub.addEventListener("change", e => {
+    if (e.target.name === "moodFilter") {
+        const mood = new CustomEvent("moodSelected", {
+            detail: {
+                mood: e.target.value
+            }
+        })
+
+        eventHub.dispatchEvent(mood)
+    }
+})
+

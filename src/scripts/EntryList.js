@@ -1,5 +1,5 @@
 import { Entry as EntryConverter } from "./Entry.js"
-import { getJournalEntries, useEntries } from "./EntryDataProvider.js"
+import { getJournalEntries, searchEntries, useEntries } from "./EntryDataProvider.js"
 
 const eventHub = document.querySelector(".container")
 
@@ -27,6 +27,10 @@ const render = (entryArray = null) => {
 eventHub.addEventListener("moodCleared", e => {
     entries = useEntries()
     render()
+})
+
+eventHub.addEventListener("searchTermChanged", e => {
+    searchEntries(e.detail.term).then(render)
 })
 
 eventHub.addEventListener("moodSelected", e => {

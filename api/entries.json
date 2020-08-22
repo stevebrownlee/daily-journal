@@ -1,4 +1,82 @@
 {
+  "tags": [
+    {
+      "id": 1,
+      "subject": "API"
+    },
+    {
+      "id": 2,
+      "subject": "components"
+    },
+    {
+      "id": 3,
+      "subject": "fetch"
+    },
+    {
+      "subject": "b",
+      "id": 4
+    },
+    {
+      "subject": "a",
+      "id": 5
+    },
+    {
+      "subject": "c",
+      "id": 6
+    }
+  ],
+  "entrytags": [
+    {
+      "id": 1,
+      "entryId": 4,
+      "tagId": 2
+    },
+    {
+      "id": 2,
+      "entryId": 4,
+      "tagId": 3
+    },
+    {
+      "id": 2,
+      "entryId": 9,
+      "tagId": 1
+    },
+    {
+      "id": 2,
+      "entryId": 9,
+      "tagId": 2
+    },
+    {
+      "entryId": 8,
+      "tagId": 4,
+      "id": 3
+    },
+    {
+      "entryId": 8,
+      "tagId": 5,
+      "id": 4
+    },
+    {
+      "entryId": 8,
+      "tagId": 6,
+      "id": 5
+    },
+    {
+      "entryId": 9,
+      "tagId": 5,
+      "id": 6
+    },
+    {
+      "entryId": 9,
+      "tagId": 4,
+      "id": 7
+    },
+    {
+      "entryId": 9,
+      "tagId": 6,
+      "id": 8
+    }
+  ],
   "entries": [
     {
       "id": 1,
@@ -34,6 +112,34 @@
       "entry": "We learned how to construct an object and access keys using dot notation and square bracket notation",
       "mood": "happy",
       "id": 5
+    },
+    {
+      "date": 1598116131875,
+      "concept": "po",
+      "entry": "po",
+      "mood": "sad",
+      "id": 6
+    },
+    {
+      "date": 1598116254942,
+      "concept": "po",
+      "entry": "po",
+      "mood": "sad",
+      "id": 7
+    },
+    {
+      "date": 1598116347627,
+      "concept": "po",
+      "entry": "po",
+      "mood": "sad",
+      "id": 8
+    },
+    {
+      "date": 1598116399600,
+      "concept": "op",
+      "entry": "op",
+      "mood": "sad",
+      "id": 9
     }
   ]
 }

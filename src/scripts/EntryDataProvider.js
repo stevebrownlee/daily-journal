@@ -34,6 +34,30 @@ export const saveJournalEntry = (entry) => {
 }
 
 export const deleteJournalEntry = (id) => {
-    return fetch(`http://localhost:8088/entries/${id}`, { method: "DELETE" })
-        .then(getJournalEntries)
+    return fetch(`http://localhost:8088/entrytags?entryId=${id}`)
+        .then(response => response.json())
+        .then((rels) => {
+            const relationshipDeletePromises = []
+
+            for (const rel of rels) {
+                relationshipDeletePromises.push(
+                    fetch(`http://localhost:8088/entrytags/${rel.id}`,
+                        {
+                            method: "DELETE"
+                        }
+                    )
+                )
+            }
+
+            return Promise.all(relationshipDeletePromises)
+                .then(() => {
+                    return fetch(`http://localhost:8088/entries/${id}`,
+                        {
+                            method: "DELETE"
+                        }
+                    )
+                        .then(getJournalEntries)
+                })
+
+        })
 }

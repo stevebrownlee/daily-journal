@@ -1,4 +1,7 @@
+import { settings } from "./settings.js";
+
 let entries = []
+let domain = settings.apiURL
 
 const eventHub = document.querySelector(".container")
 
@@ -10,19 +13,19 @@ const dispatchStateChangeEvent = () => {
 export const useEntries = () => entries.slice()
 
 export const getJournalEntries = () => {
-    return fetch("http://localhost:8088/entries")
+    return fetch(`${domain}/entries`)
         .then(response => response.json())
         .then(data => entries = data)
         .then(dispatchStateChangeEvent)
 }
 
 export const searchEntries = (term) => {
-    return fetch(`http://localhost:8088/entries?q=${term}`)
+    return fetch(`${domain}/entries?q=${term}`)
         .then(response => response.json())
 }
 
 export const saveJournalEntry = (entry) => {
-    return fetch("http://localhost:8088/entries", {
+    return fetch(`${domain}/entries`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -33,31 +36,21 @@ export const saveJournalEntry = (entry) => {
         .then(getJournalEntries)
 }
 
-export const deleteJournalEntry = (id) => {
-    return fetch(`http://localhost:8088/entrytags?entryId=${id}`)
-        .then(response => response.json())
-        .then((rels) => {
-            const relationshipDeletePromises = []
+export const deleteJournalEntry = async (id) => {
+    const relationshipDeletePromises = []
 
-            for (const rel of rels) {
-                relationshipDeletePromises.push(
-                    fetch(`http://localhost:8088/entrytags/${rel.id}`,
-                        {
-                            method: "DELETE"
-                        }
-                    )
-                )
-            }
+    const response = await fetch(`${domain}/entrytags?entryId=${id}`)
+    const rels = await response.json()
 
-            return Promise.all(relationshipDeletePromises)
-                .then(() => {
-                    return fetch(`http://localhost:8088/entries/${id}`,
-                        {
-                            method: "DELETE"
-                        }
-                    )
-                        .then(getJournalEntries)
-                })
+    for (const rel of rels) {
+        relationshipDeletePromises.push(
+            fetch(`${domain}/entrytags/${rel.id}`, { method: "DELETE" })
+        )
+    }
 
-        })
+    await Promise.all(relationshipDeletePromises)
+
+    const result = await fetch(`${domain}/entries/${id}`, { method: "DELETE" })
+
+    return getJournalEntries(result)
 }

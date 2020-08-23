@@ -12,20 +12,23 @@ eventHub.addEventListener("click", e => {
 
 export const Entry = (journalEntry) => {
     return `
-        <article class="journalEntry">
-            <header>
+        <article class="entry">
+            <header class="entry__header">
                 <h2>${journalEntry.concept}</h2>
             </header>
-            <section>
+            <section class="entry__text">
                 ${journalEntry.entry}
-                <div>I felt ${ journalEntry.mood } about it</div>
+                <div class="entry__mood">I felt ${ journalEntry.mood } about it</div>
             </section>
             <date>
-                <time>${journalEntry.date}</time>
+                <time class="entry__datetime">${journalEntry.date}</time>
             </date>
             <footer>
-                <button id="deleteEntry--${journalEntry.id}">Delete</button>
+                ${
+                  journalEntry.tags.map(t => `#${t.subject}`).join(" ")
+                }
             </footer>
+            <button id="deleteEntry--${journalEntry.id}">Delete</button>
         </article>
     `
 }

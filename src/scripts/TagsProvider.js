@@ -1,23 +1,25 @@
+import { settings } from "./settings.js";
+
 let tags = []
+let entryTags = []
 
 const eventHub = document.querySelector(".container")
 
-const dispatchStateChangeEvent = () => {
-    const tagsChanged = new CustomEvent("tagStateChanged")
-    eventHub.dispatchEvent(tagsChanged)
-}
+const dispatchTagStateChangeEvent = () => eventHub.dispatchEvent(new CustomEvent("tagStateChanged"))
+const dispatchEntryTagStateChangeEvent = () => eventHub.dispatchEvent(new CustomEvent("entryTagStateChanged"))
 
 export const useTags = () => tags.slice()
+export const useEntryTags = () => entryTags.slice()
 
 export const getTags = () => {
-    return fetch("http://localhost:8088/tags")
+    return fetch(`${settings.apiURL}/tags`)
         .then(response => response.json())
         .then(data => tags = data)
-        .then(dispatchStateChangeEvent)
+        .then(dispatchTagStateChangeEvent)
 }
 
 export const saveTag = (tag) => {
-    return fetch("http://localhost:8088/tags", {
+    return fetch(`${settings.apiURL}/tags`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -28,28 +30,35 @@ export const saveTag = (tag) => {
 }
 
 export const findTag = (subject) => {
-    return fetch(`http://localhost:8088/tags?subject=${subject}`)
+    return fetch(`${settings.apiURL}/tags?subject=${subject}`)
         .then(response => response.json())
 }
 
-export const getEntryTags = (entryId) => {
-    return fetch(`http://localhost:8088/entrytags?entryId=${entryId}`)
+export const getEntryTags = () => {
+    return fetch(`${settings.apiURL}/entrytags`)
         .then(response => response.json())
+        .then(data => entryTags = data)
+        .then(dispatchEntryTagStateChangeEvent)
 }
 
 export const deleteEntryTag = (id) => {
-    return fetch(`http://localhost:8088/entrytags/${id}`, { "method": "DELETE" })
+    return fetch(`${settings.apiURL}/entrytags/${id}`, { "method": "DELETE" })
         .then(response => response.json())
 }
 
 export const saveEntryTag = (entryId, tagId) => {
-    return fetch("http://localhost:8088/entrytags", {
+    return fetch(`${settings.apiURL}/entrytags`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({ entryId, tagId })
     })
-        .then(response => response.json())
+        .then(getEntryTags)
+        .then(dispatchEntryTagStateChangeEvent)
 }
 
+eventHub.addEventListener("entryStateChanged", e => {
+    console.log("****  entryStateChanged detected  ****")
+    getTags().then(getEntryTags)
+})

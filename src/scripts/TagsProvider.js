@@ -41,6 +41,16 @@ export const getEntryTags = () => {
         .then(dispatchEntryTagStateChangeEvent)
 }
 
+export const findEntryTag = (entryId, tagId) => {
+    return fetch(`${settings.apiURL}/entrytags?entryId=${entryId}&tagId=${tagId}`)
+        .then(response => response.json())
+}
+
+export const getTagsForEntry = (entryId) => {
+    return fetch(`${settings.apiURL}/entrytags?entryId=${entryId}`)
+        .then(response => response.json())
+}
+
 export const deleteEntryTag = (id) => {
     return fetch(`${settings.apiURL}/entrytags/${id}`, { "method": "DELETE" })
         .then(response => response.json())

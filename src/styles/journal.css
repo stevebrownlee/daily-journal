@@ -13,6 +13,15 @@ textarea {
 	line-height: 1.5;
 }
 
+input[type="text"] {
+    min-width: 88%;
+}
+
+textarea {
+    min-width: 88%;
+    min-height: 10rem;
+}
+
 h1,h2,h3,h4,h5,h6 {
   font-family: "Patua One", serif;
   letter-spacing: 2px;

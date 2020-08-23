@@ -43,9 +43,54 @@
     {
       "subject": "p",
       "id": 11
+    },
+    {
+      "subject": "api",
+      "id": 12
+    },
+    {
+      "subject": "events",
+      "id": 13
+    },
+    {
+      "subject": "details",
+      "id": 14
+    },
+    {
+      "subject": "state",
+      "id": 15
+    },
+    {
+      "subject": "customevent",
+      "id": 16
+    },
+    {
+      "subject": "detail",
+      "id": 17
     }
   ],
-  "entrytags": [],
+  "entrytags": [
+    {
+      "entryId": 7,
+      "tagId": 5,
+      "id": 1
+    },
+    {
+      "entryId": 7,
+      "tagId": 4,
+      "id": 2
+    },
+    {
+      "entryId": 7,
+      "tagId": 6,
+      "id": 3
+    },
+    {
+      "entryId": 7,
+      "tagId": 7,
+      "id": 4
+    }
+  ],
   "entries": [
     {
       "id": 1,
@@ -81,6 +126,20 @@
       "entry": "We learned how to construct an object and access keys using dot notation and square bracket notation",
       "mood": "happy",
       "id": 5
+    },
+    {
+      "id": 6,
+      "date": 1598156856966,
+      "concept": "Custom events",
+      "entry": "Learned how to target a DOM element as the destination of all custom events in the system. Also learned how to pass state as details of the event.",
+      "mood": "ok"
+    },
+    {
+      "id": 7,
+      "date": 1598189308926,
+      "concept": "cefklmvklef",
+      "entry": "mkvmefklmvdfkl",
+      "mood": "ok"
     }
   ]
 }

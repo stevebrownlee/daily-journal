@@ -10,6 +10,18 @@ eventHub.addEventListener("click", e => {
     }
 })
 
+eventHub.addEventListener("click", e => {
+    if (e.target.id.startsWith("editEntry--")) {
+        const [prompt, id] = e.target.id.split("--")
+
+        eventHub.dispatchEvent(new CustomEvent("editInitiated", {
+            detail: {
+                entryId: parseInt(id)
+            }
+        }))
+    }
+})
+
 export const Entry = (journalEntry) => {
     return `
         <article class="entry">
@@ -29,6 +41,7 @@ export const Entry = (journalEntry) => {
                 }
             </footer>
             <button id="deleteEntry--${journalEntry.id}">Delete</button>
+            <button id="editEntry--${journalEntry.id}">Edit</button>
         </article>
     `
 }

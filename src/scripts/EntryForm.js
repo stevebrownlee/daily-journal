@@ -1,5 +1,5 @@
 import { getJournalEntry, saveJournalEntry, updateJournalEntry } from "./EntryDataProvider.js"
-import { findEntryTag, findTag, getTagsForEntry, saveEntryTag, saveTag, useTags } from "./TagsProvider.js"
+import { findEntryTag, findTag, getEntryTags, getTagsForEntry, saveEntryTag, saveTag, useTags } from "./TagsProvider.js"
 
 const eventHub = document.querySelector(".container")
 
@@ -35,6 +35,10 @@ export const EntryForm = () => {
     `
 }
 
+
+/*
+    Saving/Editing a journal entry on button click
+*/
 eventHub.addEventListener("click", e => {
     if (e.target.id === "journalSaveButton") {
         const concept = document.querySelector("#entryForm__concepts").value
@@ -43,37 +47,49 @@ eventHub.addEventListener("click", e => {
         const id = document.querySelector("#entryForm__id").value
         const tags = document.querySelector("#entryForm__tags").value.split(",")
 
-
         if (id !== "") {
             // Construct replacement entry object
             const updatedEntry = {
                 id: parseInt(id),
                 date: entry.date,
-                concept: concept,
+                concept,
                 entry: entryText,
-                mood: mood
+                mood
             }
 
-            updateJournalEntry(updatedEntry)
-                .then(() => tags.forEach(tag => addTagsToEntry(updatedEntry, tag)))
 
+            // Replace old entry state, then create/assign tags to entry (if changed)
+            updateJournalEntry(updatedEntry)
+                .then(() => {
+                    const tagCreationPromises = []
+                    tags.forEach(tag => tagCreationPromises.push(addTagsToEntry(updatedEntry, tag)))
+                    Promise.all(tagCreationPromises).then(getEntryTags)
+                })
         }
         else {
-            const date = Date.now()
-
             // Construct new entry object
             const newEntry = {
-                date, concept, entry: entryText, mood
+                date: Date.now(),
+                concept,
+                entry: entryText,
+                mood
             }
 
             // Create new entry, then create/assign tags to it
             saveJournalEntry(newEntry)
-                .then(createdEntry => tags.forEach(tag => addTagsToEntry(createdEntry, tag)))
+                .then(createdEntry => {
+                    const tagCreationPromises = []
+                    tags.forEach(tag => tagCreationPromises.push(addTagsToEntry(createdEntry, tag)))
+                    Promise.all(tagCreationPromises).then(getEntryTags)
+                })
         }
 
     }
 })
 
+/*
+    Clear the form of all user input
+*/
 const reset = () => {
     entry = {}
     document.querySelector("#entryForm__concepts").value = ""
@@ -83,8 +99,11 @@ const reset = () => {
     document.querySelector("#entryForm__id").value = ""
 }
 
+/*
+    Find or create tags, and then assign them to a journal entry
+*/
 const addTagsToEntry = (entry, tag) => {
-    findTag(tag)
+    return findTag(tag)
         .then(matches => {
             let matchingTagId = null
 
@@ -93,26 +112,33 @@ const addTagsToEntry = (entry, tag) => {
             }
 
             if (matchingTagId === null) {
-                saveTag(tag)
+                return saveTag(tag)
                     .then(new_tag => {
                         saveEntryTag(entry.id, new_tag.id)
                     })
             }
             else {
                 // Does the relationship already exist?
-                findEntryTag(entry.id, matchingTagId)
+                return findEntryTag(entry.id, matchingTagId)
                     .then(rel => {
                         // Relationship does not exist yet, so create it
                         if (rel.length === 0) {
-                            saveEntryTag(entry.id, matchingTagId)
+                            return saveEntryTag(entry.id, matchingTagId)
                         }
                     })
             }
         })
 }
 
+/*
+    Reset the form when an entry is created, updated, or deleted
+*/
 eventHub.addEventListener("entryStateChanged", reset)
 
+
+/*
+    User chose to edit an entry. Populate the form fields with current API state.
+*/
 eventHub.addEventListener("editInitiated", e => {
     const allTags = useTags()
     getJournalEntry(e.detail.entryId)
@@ -136,7 +162,5 @@ eventHub.addEventListener("editInitiated", e => {
                 left: 0,
                 behavior: 'smooth'
             })
-
         })
-
 })

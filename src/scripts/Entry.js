@@ -33,7 +33,7 @@ export const Entry = (journalEntry) => {
                 <div class="entry__mood">I felt ${ journalEntry.mood } about it</div>
             </section>
             <date>
-                <time class="entry__datetime">${journalEntry.date}</time>
+                <time class="entry__datetime">${new Date(journalEntry.date).toLocaleDateString()}</time>
             </date>
             <footer>
                 ${

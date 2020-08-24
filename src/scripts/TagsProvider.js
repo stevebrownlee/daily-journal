@@ -64,8 +64,6 @@ export const saveEntryTag = (entryId, tagId) => {
         },
         body: JSON.stringify({ entryId, tagId })
     })
-        .then(getEntryTags)
-        .then(dispatchEntryTagStateChangeEvent)
 }
 
 eventHub.addEventListener("entryStateChanged", e => {

@@ -67,65 +67,162 @@
     {
       "subject": "detail",
       "id": 17
+    },
+    {
+      "subject": "dom",
+      "id": 18
+    },
+    {
+      "subject": "customevents",
+      "id": 19
+    },
+    {
+      "subject": "o",
+      "id": 20
+    },
+    {
+      "subject": "javascript",
+      "id": 21
+    },
+    {
+      "subject": "keys",
+      "id": 22
+    },
+    {
+      "subject": "objects",
+      "id": 23
+    },
+    {
+      "subject": "razor",
+      "id": 24
+    },
+    {
+      "subject": "css",
+      "id": 25
     }
   ],
   "entrytags": [
     {
+      "entryId": 6,
+      "tagId": 13,
+      "id": 1
+    },
+    {
+      "entryId": 6,
+      "tagId": 15,
+      "id": 2
+    },
+    {
+      "entryId": 6,
+      "tagId": 18,
+      "id": 3
+    },
+    {
+      "entryId": 6,
+      "tagId": 17,
+      "id": 4
+    },
+    {
+      "entryId": 6,
+      "tagId": 19,
+      "id": 5
+    },
+    {
+      "entryId": 5,
+      "tagId": 21,
+      "id": 6
+    },
+    {
+      "entryId": 5,
+      "tagId": 22,
+      "id": 7
+    },
+    {
+      "entryId": 5,
+      "tagId": 23,
+      "id": 8
+    },
+    {
+      "entryId": 4,
+      "tagId": 6,
+      "id": 9
+    },
+    {
+      "entryId": 4,
+      "tagId": 21,
+      "id": 10
+    },
+    {
+      "entryId": 4,
+      "tagId": 24,
+      "id": 11
+    },
+    {
+      "entryId": 4,
+      "tagId": 25,
+      "id": 12
+    },
+    {
+      "entryId": 3,
+      "tagId": 12,
+      "id": 13
+    },
+    {
+      "entryId": 7,
+      "tagId": 11,
+      "id": 14
+    },
+    {
+      "entryId": 7,
+      "tagId": 20,
+      "id": 15
+    },
+    {
       "entryId": 7,
       "tagId": 5,
-      "id": 1
+      "id": 16
     },
     {
       "entryId": 7,
       "tagId": 4,
-      "id": 2
-    },
-    {
-      "entryId": 7,
-      "tagId": 6,
-      "id": 3
-    },
-    {
-      "entryId": 7,
-      "tagId": 7,
-      "id": 4
+      "id": 17
     }
   ],
   "entries": [
     {
       "id": 1,
       "concept": "Array methods",
-      "date": "07/24/2018",
+      "date": 1596856617100,
       "entry": "We learned about array methods, but only forEach made sense",
       "mood": "ok"
     },
     {
-      "date": "2018-09-18",
+      "date": 1597000717100,
       "concept": "API, fetch",
       "entry": "We learned how to use the JavaScript fetch command to POST information to our API",
       "mood": "happy",
       "id": 2
     },
     {
-      "date": "2018-10-26",
+      "id": 3,
+      "date": 1597056847100,
       "concept": "Web API",
       "entry": "Cohort 27 started on Web API sprint today",
-      "mood": "happy",
-      "id": 3
+      "mood": "happy"
     },
     {
-      "date": "2018-10-29",
+      "id": 4,
+      "date": 1597256847966,
       "concept": "ASP.NET Web App",
       "entry": "We learned how to customize Razor templates with static JS and CSS",
-      "mood": "sad",
-      "id": 4
+      "mood": "sad"
     },
     {
-      "date": "2019-01-11",
+      "id": 5,
+      "date": 1597546756466,
       "concept": "JavaScript Objects",
       "entry": "We learned how to construct an object and access keys using dot notation and square bracket notation",
-      "mood": "happy",
-      "id": 5
+      "mood": "happy"
     },
     {
       "id": 6,
@@ -136,10 +233,10 @@
     },
     {
       "id": 7,
-      "date": 1598189308926,
-      "concept": "cefklmvklef",
-      "entry": "mkvmefklmvdfkl",
-      "mood": "ok"
+      "date": 1598275209215,
+      "concept": "popop",
+      "entry": "opopo",
+      "mood": "happy"
     }
   ]
 }

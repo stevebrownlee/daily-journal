@@ -54,3 +54,16 @@ h1,h2,h3,h4,h5,h6 {
 .filter__searchTerm {
     width: 97%
 }
+
+.entry__footer {
+    margin: 1rem 0;
+}
+
+.entry__subject {
+    padding: 0.33rem 0.33rem;
+    background-color: #eed8e1;
+    color: #000;
+    border-radius: 0.25rem;
+    margin: 0.2rem 0.33rem;
+    font-size: 0.8rem;
+}

@@ -99,6 +99,14 @@
     {
       "subject": "css",
       "id": 25
+    },
+    {
+      "subject": "python",
+      "id": 26
+    },
+    {
+      "subject": " sql",
+      "id": 27
     }
   ],
   "entrytags": [
@@ -166,26 +174,6 @@
       "entryId": 3,
       "tagId": 12,
       "id": 13
-    },
-    {
-      "entryId": 7,
-      "tagId": 11,
-      "id": 14
-    },
-    {
-      "entryId": 7,
-      "tagId": 20,
-      "id": 15
-    },
-    {
-      "entryId": 7,
-      "tagId": 5,
-      "id": 16
-    },
-    {
-      "entryId": 7,
-      "tagId": 4,
-      "id": 17
     }
   ],
   "entries": [
@@ -230,13 +218,6 @@
       "concept": "Custom events",
       "entry": "Learned how to target a DOM element as the destination of all custom events in the system. Also learned how to pass state as details of the event.",
       "mood": "ok"
-    },
-    {
-      "id": 7,
-      "date": 1598275209215,
-      "concept": "popop",
-      "entry": "opopo",
-      "mood": "happy"
     }
   ]
 }

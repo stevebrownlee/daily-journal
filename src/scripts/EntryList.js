@@ -26,9 +26,7 @@ const render = (entryArray = null) => {
     console.log("****  Rendering entries  ****")
 
     // A subset can be passed as a parameter when user is filtering
-    if (entryArray === null) {
-        entryArray = entries
-    }
+    entryArray = entryArray ?? entries
 
     // Because it doesn't exist in index.html
     const contentTarget = document.querySelector(".entryList")

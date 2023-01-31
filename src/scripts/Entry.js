@@ -35,9 +35,9 @@ export const Entry = (journalEntry) => {
             <date>
                 <time class="entry__datetime">${new Date(journalEntry.date).toLocaleDateString()}</time>
             </date>
-            <footer>
+            <footer class="entry__footer">
                 ${
-                  journalEntry.tags.map(t => `#${t.subject}`).join(" ")
+                  journalEntry.tags.map(t => `<span class="entry__subject">#${t.subject}</span>`).join(" ")
                 }
             </footer>
             <button id="deleteEntry--${journalEntry.id}">Delete</button>
